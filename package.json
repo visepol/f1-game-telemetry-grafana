@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@racehub-io/f1-telemetry-client": "^0.2.12"
+  },
+  "devDependencies": {
+    "tsx": "^4.21.0"
+  }
+}
