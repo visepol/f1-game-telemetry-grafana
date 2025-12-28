@@ -25,13 +25,7 @@ function createPoint({ measurement, data }): Point {
         break
 
       case 'number':
-        Number.isInteger(value)
-          ? point.intField(key, value)
-          : point.floatField(key, value)
-        break
-
-      case 'boolean':
-        point.booleanField(key, value)
+        point.floatField(key, value)
         break
     }
   }
@@ -42,6 +36,8 @@ function createPoint({ measurement, data }): Point {
 export class InfluxDBMetricRepository implements MetricRepository {
   write(MetricData: Record<string, number | string>, MetricType: string): void {
     const point = createPoint({ measurement: MetricType, data: MetricData })
+
+    console.info(`Writing point to InfluxDB: ${point.toLineProtocol()}`)
     writeApi.writePoint(point)
   }
 }
