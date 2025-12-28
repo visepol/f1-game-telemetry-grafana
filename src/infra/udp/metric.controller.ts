@@ -1,5 +1,5 @@
 import { WriteMetricUseCase } from '@/application/write-metric'
-import { InfluxDBMetricRepository } from '@/infra/repositories/influxdb/influxdb-metric-repository'
+import { InfluxDBMetricRepository } from '@/infra/repositories/influxdb-metric-repository'
 import { flatten } from 'flat'
 
 export function makeWriteMetricUseCase() {
