@@ -6,6 +6,7 @@ async function bootstrap() {
   const port = env.UDP_PORT
   const client = new F1TelemetryClient({ port })
   packetRouter(client)
+  client.start()
 }
 
 bootstrap()
