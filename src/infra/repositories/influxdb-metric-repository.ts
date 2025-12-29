@@ -36,6 +36,9 @@ function createPoint({ measurement, data }): Point {
 export class InfluxDBMetricRepository implements MetricRepository {
   write(MetricData: Record<string, number | string>, MetricType: string): void {
     const point = createPoint({ measurement: MetricType, data: MetricData })
+
+    console.info(`[InfluxDB] Writing metric: ${point.toLineProtocol()}`)
+
     writeApi.writePoint(point)
   }
 }
